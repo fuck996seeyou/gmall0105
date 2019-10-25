@@ -1,7 +1,9 @@
 package com.atguigu.gmall.user.controller;
 
-import com.atguigu.gmall.user.bean.UmsMember;
-import com.atguigu.gmall.user.service.UserService;
+import com.atguigu.gmall.bean.UmsMember;
+import com.atguigu.gmall.bean.UmsMemberReceiveAddress;
+import com.atguigu.gmall.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,13 @@ public class UserController {
   public List<UmsMember> getAllUser(){
     List<UmsMember> umsMember = userService.getAllUser();
     return umsMember;
+  }
+  //通过地址id查询所有地址信息
+  @RequestMapping("getUmsMemberReceiveAddressrByMemberId")
+  @ResponseBody
+  public List<UmsMemberReceiveAddress> getUmsMemberReceiveAddressrByMemberId( String memberId){
+    List<UmsMemberReceiveAddress> umsMemberReceiveAddress =  userService.getUmsMemberReceiveAddressrByMemberId(memberId);
+    return umsMemberReceiveAddress;
   }
 
     @RequestMapping("index")
